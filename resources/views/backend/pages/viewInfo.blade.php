@@ -2,7 +2,11 @@
 @section('content')
     <div class="row">`
         <div class="col">
-            <h2 class="text-center pt-4">Weprosys Limited</h2>
+            <div class="d-flex justify-content-center mt-4">
+                <img src="{{ asset('backend/assets/images/logo/logo.png') }}" alt="Logo" class="img-fluid" style="max-height: 60px;">
+                <span class="mx-3"><h3><span class="text-danger">PLCU</span> (PlatinCoin Ultima)</h3>
+                <a class="text-dark" href="https://ultimafarm.com/en" target="_blank">https://ultimafarm.com/en</a></span>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <table class="table table-borderless">
@@ -33,7 +37,7 @@
                         <tr>
                             <td>Password :</td>
                             <td>
-                                {{ $information->password }}
+                                {{ $information->personal_password }}
                             </td>
                         </tr>
                         <tr>

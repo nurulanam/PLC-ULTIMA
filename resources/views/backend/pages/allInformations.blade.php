@@ -68,7 +68,7 @@
                                                 <td>{{ $information->name }}</td>
                                                 <td>{{ $information->mobile_number }}</td>
                                                 <td>{{ $information->personal_email }}</td>
-                                                <td>{{ $information->password }}</td>
+                                                <td>{{ $information->personal_password }}</td>
                                                 <td>
                                                     <div class="dropdown d-inline-block">
                                                         <button class="btn btn-soft-secondary btn-sm dropdown"

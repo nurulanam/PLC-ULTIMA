@@ -8,7 +8,7 @@
 <body style="background: #fff !important;">
 
     <!-- Begin page -->
-        <div class="container">
+        <div class="container_fluid">
             @yield('content')
         </div>
 
