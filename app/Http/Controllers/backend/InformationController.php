@@ -41,6 +41,7 @@ class InformationController extends Controller
     {
         $request->validate(
             [
+                'farm_price' => 'required',
                 'name' => 'required',
                 'mobile_number' => 'min:8|max:11|regex:/^([0-9\s\-\+\(\)]*)$/',
                 'personal_email' => 'email',
