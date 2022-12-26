@@ -14,8 +14,8 @@
                                     <div class="row g-3 mb-0 align-items-center">
                                         <!--end col-->
                                         <div class="col-auto">
-                                            <button type="button" class="btn btn-soft-success shadow-none"><i
-                                                    class="ri- align-middle me-1"></i> All Informations</button>
+                                            <a href="{{ route('information.index') }}" class="btn btn-soft-success shadow-none"><i
+                                                    class="ri- align-middle me-1"></i> All Informations</a>
                                         </div>
                                         <!--end col-->
                                     </div>
@@ -31,7 +31,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <form action="{{ route('information.store') }}" method="POST">
+                        <form action="{{ route('information.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card">
                                 <div class="card-body">
@@ -449,6 +449,96 @@
                             </div>
                             <div class="card">
                                 <div class="card-body">
+                                    <h5 class="text-center mt-2 mb-3">Upload Images</h5>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img id="preview_img1" class="img-fluid img-thumbnail shadow"
+                                                src="https://via.placeholder.com/380x180" alt="teacher avater"
+                                                style="border: 5px solid rgba(0, 0, 0, 0.151);">
+
+                                                <div class="form-group my-3">
+                                                    <label for="image1" class="form-label">Select Image</label>
+                                                    <input type="file" name="image1" class="form-control" id="image1" onchange="loadPreview(this);">
+                                                    @error('image1')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            <script>
+                                                $(document).ready(() => {
+                                                    $('#image1').change(function() {
+                                                        const file = this.files[0];
+                                                        console.log(file);
+                                                        if (file) {
+                                                            let reader = new FileReader();
+                                                            reader.onload = function(event) {
+                                                                console.log(event.target.result);
+                                                                $('#preview_img1').attr('src', event.target.result);
+                                                            }
+                                                            reader.readAsDataURL(file);
+                                                        }
+                                                    });
+                                                });
+                                            </script>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img id="preview_img2" class="img-fluid img-thumbnail shadow"
+                                                src="https://via.placeholder.com/380x180" alt="teacher avater"
+                                                style="border: 5px solid rgba(0, 0, 0, 0.151);">
+
+                                                <div class="form-group my-3">
+                                                    <label for="image2" class="form-label">Select Image</label>
+                                                    <input type="file" name="image2" class="form-control" id="image2" onchange="loadPreview(this);">
+                                                    @error('image2')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            <script>
+                                                $(document).ready(() => {
+                                                    $('#image2').change(function() {
+                                                        const file = this.files[0];
+                                                        console.log(file);
+                                                        if (file) {
+                                                            let reader = new FileReader();
+                                                            reader.onload = function(event) {
+                                                                console.log(event.target.result);
+                                                                $('#preview_img2').attr('src', event.target.result);
+                                                            }
+                                                            reader.readAsDataURL(file);
+                                                        }
+                                                    });
+                                                });
+                                            </script>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img id="preview_img3" class="img-fluid img-thumbnail shadow"
+                                                src="https://via.placeholder.com/380x180" alt="teacher avater"
+                                                style="border: 5px solid rgba(0, 0, 0, 0.151);">
+
+                                                <div class="form-group my-3">
+                                                    <label for="image3" class="form-label">Select Image</label>
+                                                    <input type="file" name="image3" class="form-control" id="image3" onchange="loadPreview(this);">
+                                                    @error('image3')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            <script>
+                                                $(document).ready(() => {
+                                                    $('#image3').change(function() {
+                                                        const file = this.files[0];
+                                                        console.log(file);
+                                                        if (file) {
+                                                            let reader = new FileReader();
+                                                            reader.onload = function(event) {
+                                                                console.log(event.target.result);
+                                                                $('#preview_img3').attr('src', event.target.result);
+                                                            }
+                                                            reader.readAsDataURL(file);
+                                                        }
+                                                    });
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
                                     <button class="btn btn-primary w-100">Save Info</button>
                                 </div>
                             </div>

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\backend\Image;
 use App\Models\backend\Information;
 use Illuminate\Http\Request;
+use File;
 
 class InformationController extends Controller
 {
@@ -39,6 +41,7 @@ class InformationController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate(
             [
                 'name' => 'required',
@@ -91,7 +94,37 @@ class InformationController extends Controller
         $information->farm_14 = $request->farm_14;
         $information->farm_15 = $request->farm_15;
         $information->save();
-        return view('backend.pages.allInformations');
+
+        $images = new Image();
+
+        $images->info_id = $information->id;
+
+        if ($request->hasFile('image1')) {
+            $file = $request->image1;
+            $ext = $file->getClientOriginalExtension();
+            $fileName = hexdec(uniqid()).'.'.$ext;
+
+            $file->move('backend/assets/images/information', $fileName);
+            $images->image1 = $fileName;
+        }
+        if ($request->hasFile('image2')) {
+            $file = $request->image2;
+            $ext = $file->getClientOriginalExtension();
+            $fileName = hexdec(uniqid()).'.'.$ext;
+
+            $file->move('backend/assets/images/information', $fileName);
+            $images->image2 = $fileName;
+        }
+        if ($request->hasFile('image3')) {
+            $file = $request->image3;
+            $ext = $file->getClientOriginalExtension();
+            $fileName = hexdec(uniqid()).'.'.$ext;
+
+            $file->move('backend/assets/images/information', $fileName);
+            $images->image3 = $fileName;
+        }
+        $images->save();
+        return redirect('/dashboard/information')->with('success', 'Information Added Successfully');
     }
 
     /**
@@ -107,7 +140,8 @@ class InformationController extends Controller
     public function viewInfo($id)
     {
         $information = Information::find($id);
-        return view('backend.pages.viewInfo', compact('information'));
+        $images = Image::where('info_id', $id)->get();
+        return view('backend.pages.view', compact('information', 'images'));
     }
 
     /**

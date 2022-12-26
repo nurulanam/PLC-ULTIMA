@@ -2,8 +2,9 @@
 
 namespace App\Models\backend;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\backend\Image;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Information extends Model
 {

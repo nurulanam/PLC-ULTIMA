@@ -10,7 +10,7 @@
             </div>
             <div class="card">
                 <div class="card-body bg-sha">
-                    <table class="table table-borderless text-start table-comp bg-transparent">
+                    <table class="table table-borderless text-start table-comp bg-transparent" style="z-index: 1; position: relative;">
                         <thead>
                             <th></th>
                             <th></th>
@@ -128,6 +128,25 @@
                                 <td colspan="2"><b>15.</b> {{ $information->farm_15 }}</td>
                             </tr>
                             <tr class="print_section">
+                                <td class="text-center" colspan="6">
+                                    <h5 class="text-decoration-underline">Ultima Farm Mnemonic</h5>
+                                </td>
+                            </tr>
+                            <tr class="print_section align-items-center">
+                                @foreach ($images as $image)
+                                    <td colspan="2">
+                                        <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$image->image1 }}" alt="" width="200px">
+                                    </td>
+                                    <td colspan="2">
+                                        <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$image->image2 }}" alt="" width="200px">
+                                    </td>
+                                    <td colspan="2">
+                                        <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$image->image3 }}" alt="" width="200px">
+                                    </td>
+                                @endforeach
+
+                            </tr>
+                            <tr class="print_section">
                                 <td>
                                     <a href="{{ route('information.index') }}" class="btn btn-danger" >Back</a>
                                     <button type="button" class="btn btn-success" onclick="window.print()">Print</button>
@@ -157,7 +176,6 @@
                     background-repeat: no-repeat;
                     background-size: contain;
                     opacity: 0.05;
-                    /* transform: rotate(20deg); */
                     transform: translate(50%, -50%) rotate(20deg) scale(2) !important;
                 }
             }
@@ -181,6 +199,7 @@
             opacity: 0.05;
             /* transform: rotate(20deg); */
             transform: translate(50%, -50%) rotate(30deg) scale(1.5);
+            z-index: 0;
         }
     </style>
 @endsection

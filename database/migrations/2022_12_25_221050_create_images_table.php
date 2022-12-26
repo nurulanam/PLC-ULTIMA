@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('info_id');
-            $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
-            $table->foreign('info_id')->references('id')->on('information')->cascadeOnDelete();
+            $table->string('image1')->nullable(true);
+            $table->string('image2')->nullable(true);
+            $table->string('image3')->nullable(true);
+
+            $table->foreign('info_id')->references('id')->on('information')->onDelete('cascade');
             $table->timestamps();
         });
     }
