@@ -63,7 +63,7 @@ class UserController extends Controller
     {
         //
     }
-    
+
     public function addRole(Request $request, User $user){
         if($user->hasRole($request->role)){
             return back()->with('message', 'Role exists');
@@ -100,6 +100,19 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $user = User::find($id);
+        if($user->hasAnyRole('admin|moderator')){
+            if($user->roles->pluck('name')){
+                $roles = $user->roles->pluck('name');
+                foreach($roles as $role){
+                    $user->removeRole($role);
+                }
+            }
+        }
+        $user->delete();
+        return redirect()->back()->with('success', 'User Deleted Successfully');
+
+
     }
 }

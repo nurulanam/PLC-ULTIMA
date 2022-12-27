@@ -92,18 +92,38 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <form action="{{ route('information.destroy',$information->id) }}" method="POST">
-                                                                    @csrf
-                                                                    @method('delete')
-                                                                    <Button class="dropdown-item remove-item-btn"><i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i> Delete</Button>
-                                                                </form>
-
-
+                                                                <button type="button" class="dropdown-item edit-item-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#delete{{ $information->id }}">
+                                                                <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
+                                                                Delete
+                                                            </button>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </td>
                                             </tr>
+                                            {{-- Delete  --}}
+                                            <div class="modal" id="delete{{ $information->id }}" tabindex="-1" aria-modal="true"
+                                                role="dialog">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Confimation Message</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h5 class="text-danger text-center">Are You Sure To Delete?</h5>
+                                                            <form action="{{ route('information.destroy',$information->id) }}" method="POST">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <Button class="btn btn-danger w-100"><i class="ri-delete-bin-fill align-bottom me-2 text-light"></i> Delete</Button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         @endforeach
                                     </tbody>
                                 </table>
