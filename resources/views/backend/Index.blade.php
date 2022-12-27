@@ -35,37 +35,46 @@
 
                         <div class="card-body p-4">
                             <div class="text-center mt-2">
-                                <x-auth-session-status class="mb-4" :status="session('status')" />
-                                <h3 class="text-primary"><b>Log In</b></h3>
+                                <h5 class="text-primary">Welcome Back !</h5>
                             </div>
                             <div class="p-2 mt-4">
-                                <form method="POST" action="{{ route('login') }}">
-                                    @csrf
-                                    <div class="from-group my-2">
-                                        <label for="" class="form-label">E-mail :</label>
-                                        <input type="email" class="form-control" name="email" required placeholder="Enter Your E-mail">
-                                        @error('email')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
+                                <h3><b>PLCU</b> সফটওয়্যার এ আপনাকে স্বাগতম </h3>
+                            </div>
+                            <div class="p-2 mt-4">
+                                @guest
+                                    <div class="d-flex justify-content-center">
+                                        <a href="{{ route('login') }}" class="btn btn-primary btn-lg mx-2">Login</a>
+                                        <a href="{{ route('register') }}" class="btn btn-primary btn-lg mx-2">Register</a>
                                     </div>
-                                    <div class="from-group my-2">
-                                        <label for="" class="form-label">Password :</label>
-                                        <input type="password" class="form-control" name="password" required placeholder="Enter Your Password">
-                                        @error('password')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                    <button class="btn btn-primary mt-2 w-100">LogIn</button>
-                                </form>
+                                @endguest
+                                @role('admin|moderator')
+                                <div class="d-flex justify-content-center">
+                                    <a href="{{ route('dashboard.index') }}" class="btn btn-primary btn-lg mx-2">Dashboard</a>
+                                </div>
+
+                                @endrole
+                                @auth
+                                    @unlessrole('does not have this role')
+                                    <h5 class="text-center">দুঃখিত আপনার কোনো Role নেই </h5>
+                                    <h5 class="text-center">Admin এর সাথে যোগাযোগ করুন </h5>
+                                    <form method="POST" action="{{ route('logout') }}" class="text-center">
+                                        @csrf
+                                        <button class="btn btn-danger btn-lg">Logout</span></button>
+                                    </form>
+                                    @endunlessrole
+                                @endauth
+
+
+                                {{-- @role('moderator')
+                                <div class="d-flex justify-content-center">
+                                    <a href="{{ route('dashboard.index') }}" class="btn btn-primary btn-lg mx-2">Dashboard</a>
+                                </div>
+                                @endrole --}}
                             </div>
                         </div>
-
                         <!-- end card body -->
                     </div>
                     <!-- end card -->
-                    <div class="mt-4 text-center">
-                            <p class="mb-0">Don't have an account ? <a href="{{ route('register') }}" class="fw-semibold text-primary text-decoration-underline"> Register </a> </p>
-                        </div>
                 </div>
             </div>
             <!-- end row -->
