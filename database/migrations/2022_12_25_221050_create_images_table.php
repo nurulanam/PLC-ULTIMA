@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('info_id');
+            $table->unsignedBigInteger('info_id')->nullable(true);
             $table->string('image1')->nullable(true);
             $table->string('image2')->nullable(true);
             $table->string('image3')->nullable(true);

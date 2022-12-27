@@ -225,17 +225,17 @@
                         </div>
                     </div>
                     <div class="row print_section">
-                        @foreach ($images as $image)
+                        {{-- @foreach ($images as $image) --}}
                             <div class="col-md-4">
-                                <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$image->image1 }}" alt="" style="max-width: 300px">
+                                <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$images->image1 }}" alt="" style="max-width: 300px">
                             </div>
                             <div class="col-md-4">
-                                <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$image->image2 }}" alt="" style="max-width: 300px">
+                                <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$images->image2 }}" alt="" style="max-width: 300px">
                             </div>
                             <div class="col-md-4">
-                                <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$image->image3 }}" alt="" style="max-width: 300px">
+                                <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$images->image3 }}" alt="" style="max-width: 300px">
                             </div>
-                        @endforeach
+                        {{-- @endforeach --}}
                     </div>
                     <div class="row print_section">
                         <div class="col-md-4">
@@ -251,7 +251,7 @@
         <style>
             @media print{
                 .cus-mr{
-                    
+
                 }
                 .print_section {
                     display: none;

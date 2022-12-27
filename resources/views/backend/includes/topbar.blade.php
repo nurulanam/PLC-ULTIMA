@@ -38,7 +38,7 @@
                 </button>
 
                 <!-- App Search-->
-                <form class="app-search d-none d-md-block">
+                {{-- <form class="app-search d-none d-md-block">
                     <div class="position-relative">
                         <input type="text" class="form-control" placeholder="Search..." autocomplete="off"
                             id="search-options" value="">
@@ -129,7 +129,7 @@
                                 Results <i class="ri-arrow-right-line ms-1"></i></a>
                         </div>
                     </div>
-                </form>
+                </form> --}}
             </div>
 
             <div class="d-flex align-items-center">
@@ -182,7 +182,7 @@
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ Auth()->user()->name }}</span>
                                 <span
-                                    class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">{{ Auth()->user()->role }}</span>
+                                    class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">{{ Auth()->user()->roles->pluck('name')->implode(',') }}</span>
                             </span>
                         </span>
                     </button>

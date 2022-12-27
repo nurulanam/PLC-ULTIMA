@@ -56,7 +56,7 @@
                                                             </button>
                                                         </li>
                                                         <li>
-                                                            <a class="dropdown-item remove-item-btn">
+                                                            <a href="" class="dropdown-item remove-item-btn">
                                                                 <i
                                                                     class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
                                                                 Delete
@@ -93,6 +93,7 @@
                                                         <form action="{{ route('users.roles', $user->id) }}" method="POST">
                                                             @csrf
                                                             <select name="role" class="form-control">
+                                                                <option>------Select Role-------</option>
                                                                 @foreach ($roles as $role)
                                                                     <option value="{{ $role->name }}">{{ $role->name }}
                                                                     </option>

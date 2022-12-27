@@ -54,14 +54,15 @@
 
                                 @endrole
                                 @auth
-                                    @unlessrole('does not have this role')
+                                    @unless(auth()->user()->hasRole('admin|moderator'))
+
                                     <h5 class="text-center">দুঃখিত আপনার কোনো Role নেই </h5>
                                     <h5 class="text-center">Admin এর সাথে যোগাযোগ করুন </h5>
                                     <form method="POST" action="{{ route('logout') }}" class="text-center">
                                         @csrf
                                         <button class="btn btn-danger btn-lg">Logout</span></button>
                                     </form>
-                                    @endunlessrole
+                                    @endunless
                                 @endauth
 
 

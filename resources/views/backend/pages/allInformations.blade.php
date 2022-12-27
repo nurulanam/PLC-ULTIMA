@@ -51,6 +51,7 @@
                                             <th>Mobile</th>
                                             <th>Personal Email</th>
                                             <th>Password</th>
+                                            <th>Farm Price</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -63,12 +64,13 @@
                                                             name="checkAll" value="option1">
                                                     </div>
                                                 </th>
-                                                <td>{{ $key += 1 }}</td>
+                                                <td>{{ $key+=1 }}</td>
                                                 <td>{{ $information->refferal_name }}</td>
                                                 <td>{{ $information->name }}</td>
                                                 <td>{{ $information->mobile_number }}</td>
                                                 <td>{{ $information->personal_email }}</td>
                                                 <td>{{ $information->personal_password }}</td>
+                                                <td>{{ $information->farm_price }}</td>
                                                 <td>
                                                     <div class="dropdown d-inline-block">
                                                         <button class="btn btn-soft-secondary btn-sm dropdown"
@@ -83,18 +85,20 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <button type="button" class="dropdown-item edit-item-btn">
+                                                                <a href="{{ route('information.edit', $information->id) }}" class="dropdown-item edit-item-btn">
                                                                     <i
                                                                         class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                                                     Edit
-                                                                </button>
+                                                                </a>
                                                             </li>
                                                             <li>
-                                                                <a class="dropdown-item remove-item-btn">
-                                                                    <i
-                                                                        class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
-                                                                    Delete
-                                                                </a>
+                                                                <form action="{{ route('information.destroy',$information->id) }}" method="POST">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <Button class="dropdown-item remove-item-btn"><i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i> Delete</Button>
+                                                                </form>
+
+
                                                             </li>
                                                         </ul>
                                                     </div>

@@ -10,7 +10,7 @@
             </div>
             <div class="card">
                 <div class="card-body bg-sha">
-                    <table class="table table-borderless text-start table-comp bg-transparent" style="z-index: 1; position: relative;">
+                    <table class="table table-striped table-responsive text-start table-comp bg-transparent" style="z-index: 1; position: relative;">
                         <thead>
                             <th></th>
                             <th></th>
@@ -59,11 +59,11 @@
                                 <td colspan="3">{{ $information->refferal_link }}</td>
                             </tr>
                             <tr>
-                                <td class="fw-bold">Account :</td>
+                                <td class="fw-bold">Account (2FA) :</td>
                                 <td colspan="3">{{ $information->account }}</td>
                             </tr>
                             <tr>
-                                <td class="fw-bold">Card :</td>
+                                <td class="fw-bold">Card (2FA):</td>
                                 <td colspan="3">{{ $information->card }}</td>
                             </tr>
 
@@ -135,13 +135,19 @@
                             <tr class="print_section align-items-center">
                                 @foreach ($images as $image)
                                     <td colspan="2">
-                                        <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$image->image1 }}" alt="" width="200px">
+                                        <a href="{{ asset('backend/assets/images/information').'/'.$image->image1 }}" target="_blank">
+                                            <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$image->image1 }}" tag="" style="max-height: 200px;">
+                                        </a>
                                     </td>
                                     <td colspan="2">
-                                        <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$image->image2 }}" alt="" width="200px">
+                                        <a href="{{ asset('backend/assets/images/information').'/'.$image->image2 }}" target="_blank">
+                                            <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$image->image2 }}" alt="" style="max-height: 200px;">
+                                        </a>
                                     </td>
                                     <td colspan="2">
-                                        <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$image->image3 }}" alt="" width="200px">
+                                        <a href="{{ asset('backend/assets/images/information').'/'.$image->image3 }}" target="_blank">
+                                            <img class="img-fluid img-thumbnail" src="{{ asset('backend/assets/images/information').'/'.$image->image3 }}" alt="" style="max-height: 200px;">
+                                        </a>
                                     </td>
                                 @endforeach
 
@@ -155,6 +161,9 @@
                         </tbody>
 
                     </table>
+                    <hr class="mt-5">
+                    <p class="text-center">A New Trend Making Money With Smartphones Business Opportunity</p>
+                    <h3 class="text-center p-0">Thank You</h3>
 
                 </div>
             </div>
@@ -169,14 +178,14 @@
                     position: absolute;
                     margin: auto;
                     left: 0;
-                    right: 50% !important;
+                    right: 60% !important;
                     top: 65% !important;
                     bottom: 0;
                     background: url({{ asset('backend/assets/images/logo/background.png') }});
                     background-repeat: no-repeat;
                     background-size: contain;
                     opacity: 0.05;
-                    transform: translate(50%, -50%) rotate(20deg) scale(2) !important;
+                    transform: translate(40%, -50%) rotate(30deg) scale(2) !important;
                 }
             }
         </style>
@@ -197,7 +206,6 @@
             background-repeat: no-repeat;
             background-size: contain;
             opacity: 0.05;
-            /* transform: rotate(20deg); */
             transform: translate(50%, -50%) rotate(30deg) scale(1.5);
             z-index: 0;
         }
