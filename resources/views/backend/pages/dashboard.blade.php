@@ -54,7 +54,7 @@
                                     <u class="text-danger">{{ $info }}</u>
                                 </div>
                                 <div class="end_item ">
-                                    <a href="{{ route('users.index') }}" class="btn btn-primary"> <i class="bx bx-arrow-to-right "></i> All Infos</a>
+                                    <a href="{{ route('users.index') }}" class="btn btn-primary"> <i class="bx bx-arrow-to-right "></i> All Info</a>
                                 </div>
                             </div>
                         </div>
