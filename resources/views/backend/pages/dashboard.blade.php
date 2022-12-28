@@ -73,6 +73,7 @@
                                     <th>Email</th>
                                     <th>Mobile</th>
                                     <th>Farm Price</th>
+                                    <th>Action</th>
                                 </thead>
                                 <tbody>
                                     @foreach ($informations as $information)
@@ -81,6 +82,9 @@
                                             <td>{{ $information->personal_email }}</td>
                                             <td>{{ $information->mobile_number }}</td>
                                             <td>{{ $information->farm_price }}</td>
+                                            <td>
+                                                <a class="btn btn-primary  btn-sm" href="{{ route('information.view', $information->id) }}">View</a>
+                                            </td>
                                         </tr>
                                     @endforeach
 

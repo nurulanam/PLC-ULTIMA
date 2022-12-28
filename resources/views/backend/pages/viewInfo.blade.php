@@ -154,7 +154,7 @@
                             </tr>
                             <tr class="print_section">
                                 <td>
-                                    <a href="{{ route('information.index') }}" class="btn btn-danger" >Back</a>
+                                    <a href="{{ url()->previous() }}" class="btn btn-danger" >Back</a>
                                     <button type="button" class="btn btn-success" onclick="window.print()">Print</button>
                                 </td>
                             </tr>
