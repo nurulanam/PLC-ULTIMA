@@ -31,6 +31,7 @@
 
             <div class="row">
                 <div class="col-xl-4 col-md-6">
+                    @if (auth()->user()->hasRole('admin'))
                     <div class="card card-animate">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
@@ -45,6 +46,8 @@
                             </div>
                         </div>
                     </div>
+                    @endif
+
                     <div class="card card-animate">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
@@ -54,7 +57,7 @@
                                     <u class="text-danger">{{ $info }}</u>
                                 </div>
                                 <div class="end_item ">
-                                    <a href="{{ route('users.index') }}" class="btn btn-primary"> <i class="bx bx-arrow-to-right "></i> All Info</a>
+                                    <a href="{{ route('information.index') }}" class="btn btn-primary"> <i class="bx bx-arrow-to-right "></i> All Info</a>
                                 </div>
                             </div>
                         </div>
