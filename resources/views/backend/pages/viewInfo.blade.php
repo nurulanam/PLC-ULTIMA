@@ -129,7 +129,7 @@
                             </tr>
                             <tr class="print_section">
                                 <td class="text-center" colspan="6">
-                                    <h5 class="text-decoration-underline">Ultima Farm Mnemonic</h5>
+                                    <h5 class="text-decoration-underline">Ultima Images</h5>
                                 </td>
                             </tr>
                             <tr class="print_section align-items-center">
