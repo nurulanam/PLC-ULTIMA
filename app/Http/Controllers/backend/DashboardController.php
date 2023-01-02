@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\backend\Information;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
@@ -20,7 +21,9 @@ class DashboardController extends Controller
         $users = User::all()->count();
         $informations = Information::latest()->take(5)->get();
         $info = Information::all()->count();
-        return view('backend.pages.dashboard', compact('users', 'informations', 'info'));
+        $lastMonthInfoTotal = Information::select('*')->whereMonth('created_at', Carbon::now()->isSameMonth())->count();
+        $lastMonthInfo = Information::select('*')->whereMonth('created_at', Carbon::now()->isSameMonth())->latest()->get();
+        return view('backend.pages.dashboard', compact('users', 'informations', 'info', 'lastMonthInfoTotal', 'lastMonthInfo'));
     }
 
     /**

@@ -98,6 +98,40 @@
                 </div>
 
             </div> <!-- end row-->
+            <div class="row">
+                <div class="col-xl-12 col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="text-uppercase fw-medium text-muted text-truncate">Total of This Month: <b class="text-danger mx-2"><u>{{ $lastMonthInfoTotal }}</u></b> </h4>
+                        </div>
+                        <div class="card-body">
+                            <table id="fixed-header" class="table table-hoverd">
+                                <thead>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile</th>
+                                    <th>Time</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                    @foreach ($lastMonthInfo as $lastMonth)
+                                        <tr>
+                                            <td>{{ $lastMonth->name }}</td>
+                                            <td>{{ $lastMonth->personal_email }}</td>
+                                            <td>{{ $lastMonth->mobile_number }}</td>
+                                            <td>{{ $lastMonth->created_at->diffForHumans() }}</td>
+                                            <td>
+                                                <a class="btn btn-primary  btn-sm" href="{{ route('information.view', $lastMonth->id) }}">View</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
