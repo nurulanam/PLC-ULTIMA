@@ -105,8 +105,15 @@
                             <h4 class="text-uppercase fw-medium text-muted text-truncate">Total of This Month: <b class="text-danger mx-2"><u>{{ $lastMonthInfoTotal }}</u></b> </h4>
                         </div>
                         <div class="card-body">
-                            <table id="fixed-header" class="table table-hoverd">
+                            <table id="fixed-header" class="table table-bordered dt-responsive nowrap table-striped align-middle"
+                            style="width:100%">
                                 <thead>
+                                    <th scope="col" style="width: 10px;">
+                                        <div class="form-check">
+                                            <input class="form-check-input fs-15" type="checkbox" id="checkAll"
+                                                value="option">
+                                        </div>
+                                    </th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Mobile</th>
@@ -116,6 +123,12 @@
                                 <tbody>
                                     @foreach ($lastMonthInfo as $lastMonth)
                                         <tr>
+                                            <th scope="row">
+                                                <div class="form-check">
+                                                    <input class="form-check-input fs-15" type="checkbox"
+                                                        name="checkAll" value="option1">
+                                                </div>
+                                            </th>
                                             <td>{{ $lastMonth->name }}</td>
                                             <td>{{ $lastMonth->personal_email }}</td>
                                             <td>{{ $lastMonth->mobile_number }}</td>
