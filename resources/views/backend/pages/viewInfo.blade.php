@@ -159,11 +159,11 @@
                                 </td>
                             </tr>
                         </tbody>
-
                     </table>
-                    <hr class="mt-5">
-                    <p class="text-center">A New Trend Making Money With Smartphones Business Opportunity</p>
-                    <h3 class="text-center p-0">Thank You</h3>
+                    <div class="bottom-txt mt-2">
+                        <p class="text-center">A New Trend Making Money With Smartphones Business Opportunity</p>
+                        <h3 class="text-center" style="line-height: 1rem">Thank You</h3>
+                    </div>
 
                 </div>
             </div>
