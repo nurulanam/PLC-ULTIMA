@@ -150,7 +150,7 @@
                                                 @enderror
                                             </div>
                                             <div class="form-group mb-3">
-                                                <label for="card" class="form-label">Card</label>
+                                                <label for="card" class="form-label">Card (2FA)</label>
                                                 <input type="text" name="card" class="form-control"
                                                     placeholder="Card">
                                                 @error('card')

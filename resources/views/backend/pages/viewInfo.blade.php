@@ -92,7 +92,7 @@
                                 <td colspan="2"><b>11.</b> {{ $information->wallet_11 }}</td>
                                 <td colspan="2"><b>12.</b> {{ $information->wallet_12 }}</td>
                             </tr>
-                            <tr>
+                            <tr class="print_section">
                                 <td colspan="2"><b>13.</b> {{ $information->wallet_13 }}</td>
                                 <td colspan="2"><b>14.</b> {{ $information->wallet_14 }}</td>
                                 <td colspan="2"><b>15.</b> {{ $information->wallet_15 }}</td>
@@ -122,7 +122,7 @@
                                 <td colspan="2"><b>11.</b> {{ $information->farm_11 }}</td>
                                 <td colspan="2"><b>12.</b> {{ $information->farm_12 }}</td>
                             </tr>
-                            <tr>
+                            <tr class="print_section">
                                 <td colspan="2"><b>13.</b> {{ $information->farm_13 }}</td>
                                 <td colspan="2"><b>14.</b> {{ $information->farm_14 }}</td>
                                 <td colspan="2"><b>15.</b> {{ $information->farm_15 }}</td>
